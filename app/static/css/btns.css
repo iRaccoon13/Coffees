@@ -1,0 +1,38 @@
+.menu-btn-large {
+  margin: 10px;
+  padding: 1em;
+  width: 75%;
+  font-size: 20px;
+  border-radius: 10px;
+  border: none;
+  background: var(--foreground-color-);
+  color: var(--text-color-inverted-);
+  box-shadow: 2px 2px 2px 0px var(--text-color-), 4px 4px 6px 1px var(--foreground-color-);
+  transition: 500ms box-shadow, 500ms color, 500ms background;
+}
+.menu-btn-large:hover {
+  background: radial-gradient(circle, var(--text-color-inverted-) 25%, var(--foreground-color-));
+  transition-duration: 250ms;
+  color: var(--text-color-);
+  box-shadow: 0px 0px 6px 2px var(--text-color-), var(--foreground-color-) 0px 0px 6px 6px;
+}
+
+.menu-btn-small {
+  transition-duration: 250ms;
+  margin: 10px 5px;
+  padding: 1em;
+  border-radius: 10px;
+  border: none;
+  outline: 4px var(--foreground-color-) inset;
+  background: var(--foreground-color-);
+  font-size: 20px;
+  color: var(--text-color-inverted-);
+}
+
+.menu-btn-small:hover {
+  color: var(--text-color-);
+  transition-duration: 250ms;
+  background: radial-gradient(circle, var(--text-color-inverted-) 25%, var(--foreground-color-));
+  box-shadow: 2px 2px 4px 4px var(--foreground-color-);
+  outline: 4px var(--foreground-color-) outset;
+}

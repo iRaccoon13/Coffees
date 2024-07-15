@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/themes.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/btns.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/reviews.css') }}">
+	<title>Reviews at Raccoon's Coffee</title>
+</head>
+<body>
+<div class="container">
+{% for review in reviews %}
+<div>
+<h1>{{ review.author }}</h1>
+<label class="rating-label">
+  <input
+    class="rating"
+    max="5"
+    style="--value: {{ review.rating }};"
+    step="0.5"
+    type="range"
+    value="{{ review.rating }}">
+</label><br>
+{{ review.text }}<br>
+{% if current_user.id == review.author_id %}
+<a href="/reviews/{{ review.id }}/delete">delete</a>
+{% endif %}
+</div>
+{% endfor %}
+</div>
+</body>
+</html>

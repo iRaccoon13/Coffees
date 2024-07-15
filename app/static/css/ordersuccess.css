@@ -1,0 +1,35 @@
+body {
+  text-align: center;
+  margin: 0px auto;
+  font-family: Arial, sans-serif, monospace;
+  background: url('/static/img/logo.png/');
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+div {
+  background: rgba(255,255,255,0.75);
+	padding: 10px;
+	position: fixed;
+	top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: -5px 4px 15px 5px black;
+  border-radius: 10px;
+}
+
+
+
+@media (max-width: 700px) {
+  div {
+    width: 100%;
+    min-height: 100%;
+    transform: none;
+    top: 0;
+    left: 0;
+  }
+
+}

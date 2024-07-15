@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block title %}Order at Raccoon's Coffee {% endblock %}
+
+{% block links %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/order.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/custom_select_menus.css') }}">
+{% endblock %}
+
+{% block body %}
+<h1>Order a Coffee</h1>
+<form method="POST">
+	<div class="custom-select-container">
+	<div class="custom-select">
+		<select name="flavor" id="flavor" required>
+			<option>Choose a flavor: </option>
+			{% for flavor in flavors %}
+			<option value="{{ flavor.name }}">{{ flavor.name }}</option>
+			{% endfor %}
+		</select>
+	</div>
+	<div class="custom-select">
+		<select name="coffee" id="coffee" required>
+			<option>Choose a coffee: </option>
+			{% for coffee in coffees %}
+			<option value="{{ coffee.name }}">{{ coffee.name }}</option>
+			{% endfor %}
+		</select>
+	</div>
+</div>
+	<hr>
+	<h2><label for="caffeine-slider">Espresso Shots: </label></h2>
+	<input type="range" name="caffeine" min="0" max="3" value="1" id="caffeine-slider" /><br><output id="caffeine-slider-output">1</output>
+	<h2><label for="name">Who's it for? </label></h2>
+	<input name="name" id="name" value="{{ current_user.username }}" type="text" required/><br>
+	<hr>
+	<label><input type="checkbox" name="special" value="Oatmilk" />Replace Milk with Oatmilk</label> <br>
+	<label><input type="checkbox" name="special" value="Add Milk" />Add Extra Milk</label>
+	<hr>
+	<label><input name="favorite" type="checkbox" />Mark as a favorite </label><br>
+	<h2><label for="date">Scheduled for: </label></h2>
+	<input type="datetime-local" name="date" id="date" required/><br>
+	<button class="menu-btn-large">Submit</button>
+</form>
+<script src="{{url_for('static', filename='js/themes.js') }}"></script>
+<script src="{{url_for('static', filename='js/custom_select_menus.js') }}"></script>
+<script src="{{url_for('static', filename='js/order.js') }}"></script>
+{% endblock %}

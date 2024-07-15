@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block title %}Raccoon's Coffee{% endblock %}
+
+{% block links %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/index.css') }}">
+{% endblock %}
+
+{% block body %}
+	{% if faves[0] %}<!-- if user has favorites -->
+	<h2>Favorites: </h2>
+	{% elif current_user.is_authenticated %}<!-- if user is logged in, but no favorites exist -->
+	<h2>Favorites will appear here. </h2>
+	{% else %}<!-- unregistered users -->
+	<a href="/login"><button class="menu-btn-small">Login</button></a>
+	<a href="/signup"><button class="menu-btn-small">Sign Up</button></a>
+	{% endif %}<!-- end -->
+	<div id="favorites">
+		{% for item in faves %}
+		<button class="menu-btn-small" 
+		data-coffee="{{ item.coffee }}" 
+		data-flavor="{{ item.flavor }}"
+		data-special="{{ item.special.replace('"', '') }}" data-orderid="{{ item.id }}">{{ item.coffee }}</button>
+		{% endfor %}
+	</div>
+		<div class="popup" id="favorites_popup"><!-- to display when favorites are clicked on, this is simply a template. -->
+			<h1></h1>
+			<h2></h2>
+			<p></p>
+			<button class="menu-btn-small">Order This</button><br>
+			<button class="menu-btn-small">&times; Remove</button><br>
+			<button class="menu-btn-small">Cancel</button>
+		</div>
+	<a href="/order/">
+	<button class="menu-btn-large">
+		Place an order
+	</button>
+	</a>
+	<button class="menu-btn-large">
+		See Order History
+	</button>
+	<a href="/reviews/">
+		<button class="menu-btn-large">
+		See Reviews
+		</button>
+	</a>
+
+
+{% if current_user.id == 1 %}<!-- if user is admin -->
+<a href="/orders/"><button class="menu-btn-large">Orders</button></a>
+<a href="/menu/"><button class="menu-btn-large">Update Menu</button></a>
+{% endif %}
+
+<script type="text/javascript" src="{{ url_for('static', filename='js/index.js') }}"></script>
+{% endblock %}

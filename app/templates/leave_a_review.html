@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/themes.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/btns.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/leave_a_review.css') }}">
+	<title>Leave a Review at Raccoon's Coffee</title>
+</head>
+<body>
+<div id="parallax">
+</div>
+<h1>Leave a Review</h1>
+<form action="/reviews/" method="POST">
+<label class="rating-label">
+  <input
+	class="rating"
+	max="5"
+	oninput="this.style.setProperty('--value', this.value)"
+	step="0.5"
+	type="range"
+	name="rating" 
+	required>
+</label><br>
+<textarea name="body" placeholder="Review Body"></textarea><br>
+<button class="menu-btn-small">Submit</button>
+</form>
+<script src="{{ url_for('static', filename='js/leave_review.js') }}"></script>
+</body>
+</html>

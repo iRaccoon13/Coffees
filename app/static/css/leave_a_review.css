@@ -1,0 +1,72 @@
+body {
+  text-align: center;
+  font-family: Arial, sans-serif, monospace;
+  color: var(--text-color-);
+  background-color: var(--background-color-);
+}
+.parallax {
+  top: 0;
+  /* The image used */
+  background-image: url("/static/img/logo.png");
+
+  /* Set a specific height */
+  min-height: 512px;
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 0;
+  border-radius: 5px;
+}
+.parallax > h1 {
+  font-size: 75px;
+  text-align: center;
+  color: var(--foreground-color-);
+}
+
+
+
+input[type="text"], input[type="datetime-local"], input[type="number"], textarea {
+  margin: 10px;
+  padding: 0.5em;
+  /*width: 100%;*/
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 10px;
+  color: var(--foreground-color-);
+  border: 3px var(--foreground-color-) solid;
+  background: transparent;
+}
+
+
+.rating {
+  -webkit-appearance: none;
+  --star: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 17.25l-6.188 3.75 1.641-7.031-5.438-4.734 7.172-0.609 2.813-6.609 2.813 6.609 7.172 0.609-5.438 4.734 1.641 7.031z"/></svg>');
+
+  --fill: gold;
+  --fillbg: lightgray;
+
+  --dir: right;
+  [dir="rtl"] .rating {
+    --dir: left;
+  }
+  --stars: 5;
+  --starsize: 3rem;
+  --symbol: var(--star);
+  --value: 0;
+  --x: calc(100% * (var(--value) / var(--stars)));
+
+  
+  background: linear-gradient(to var(--dir), var(--fill) 0 var(--x), var(--fillbg) 0 var(--x));
+  /*block-size: 100%;*/
+  mask: repeat left center/var(--starsize) var(--symbol);
+  height: 3rem;
+  width: calc(5 * var(--starsize));
+  -webkit-mask: repeat left center/var(--starsize) var(--symbol);
+}
+.rating::-webkit-slider-thumb {
+  width: 0;
+  -webkit-appearance: none;
+}

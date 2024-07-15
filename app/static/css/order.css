@@ -1,0 +1,112 @@
+label:has(input[type="checkbox"]) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+input[type="checkbox"] { 
+  appearance: none;
+  -webkit-appearance: none;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  padding: 0.1rem;
+  border: 0.25rem solid var(--foreground-color-);
+  border-radius: 0.5rem;
+  margin-right: 0.25rem;
+}
+
+input[type="checkbox"]::before {
+  content: "\2713";
+  width: 1.5rem;
+  height: 1.5rem;
+  opacity: 0;
+  transition-duration: 250ms;
+}
+
+input[type="checkbox"]:checked {
+  background-color: var(--foreground-color-);
+  box-shadow: 2px 2px 4px var(--foreground-color-);
+  transition-duration: 250ms;
+}
+
+input[type="checkbox"]:checked::before {
+  opacity: 1;
+  transition-duration: 250ms;
+}
+
+
+input[type="text"], input[type="datetime-local"], input[type="number"] {
+  margin: 10px;
+  padding: 0.5em;
+  /*width: 100%;*/
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 10px;
+  color: var(--foreground-color-);
+  border: 3px var(--foreground-color-) inset;
+  background: transparent;
+}
+
+
+input[type="range"] {
+  -webkit-appearance: none;
+  background: white;
+  border-radius: 15px;
+  height: 5px;
+  border: 10px var(--foreground-color-) solid; 
+  transition-duration: 250ms;
+}
+
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 25px;
+  width: 15px;
+  background: var(--foreground-color-); 
+  border: 5px var(--text-color-) outset;
+  border-radius: 10px;
+  cursor: pointer; /* Cursor on hover */
+  transition-duration: 250ms;
+}
+
+input[type="range"]:hover, input[type="range"]:focus {
+  box-shadow: 2px 2px 4px var(--foreground-color-);
+  transition-duration: 250ms;
+}
+
+input[type="range"]:hover::-webkit-slider-thumb, input[type="range"]:focus::-webkit-slider-thumb {
+  box-shadow: 2px 2px 4px var(--text-color-);
+  transition-duration: 250ms;
+}
+
+input:not([type="range"]) {
+  box-shadow: none;
+  transition-duration: 250ms;
+}
+
+input:not([type="range"], [type="checkbox"]):focus, input:not([type="range"], [type="checkbox"]):hover {
+  border: 4px var(--foreground-color-) outset;
+  box-shadow: 2px 2px 4px var(--foreground-color-);
+  transition-duration: 250ms;
+}
+
+form:has(input:invalid) button {
+  color: maroon !important;
+  text-indent: -9999px;
+  line-height: 0;
+  cursor: not-allowed !important; /* Change cursor to indicate it is not clickable */
+  pointer-events: none; /* Prevent any interaction with the button */
+  box-shadow: none;
+}
+form:has(input:invalid) button::after {
+  content: "Please check fields";
+  text-indent: 0;
+  display: block;
+  line-height: initial;
+}
+
+

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+	<title>Coffee orders</title>
+	<meta http-equiv="refresh" content="3">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/themes.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/btns.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/orders.css') }}">
+</head>
+<body>
+<div id="orders_container">
+{% for order in orders %}
+<div data-orderid="{{ order.id }}">
+<h1>{{ order.name }}</h1>
+{{ order.flavor }} {{ order.coffee }} ({{ order.special.replace('"', "") }})
+<button>&times;</button>
+</div>
+{% endfor %}
+</div>
+<a href="/"><button class="menu-btn-large">Home</button></a>
+<script type="text/javascript" src="{{ url_for('static', filename='js/orders.js') }}"></script>
+</body>
+</html>

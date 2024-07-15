@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/btns.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/menuupdate.css') }}">
+	<title>Update Menu at Raccoon's Coffee</title>
+</head>
+<body>
+<div class="container">
+<h2>Coffees: </h2>
+<div class="editablelist" id="coffees">
+<ul contenteditable>
+	{% for coffee in coffees %}
+	<li>{{ coffee.name }}</li>
+	{% endfor %}
+	<li></li>
+</ul>
+</div>
+<h2>Flavors: </h2>
+<div id="flavors">
+<ul contenteditable>
+	{% for flavor in flavors %}
+	<li>{{ flavor.name }}</li>
+	{% endfor %}
+	<li></li>
+</ul>
+</div>
+<button id="submit_btn" class="menu-btn-small">Submit</button>
+<a href="/"><button class="menu-btn-small">Home</button></a>
+</div>
+<script src="{{ url_for('static', filename='js/menuupdate.js') }}"></script>
+</body>
+</html>

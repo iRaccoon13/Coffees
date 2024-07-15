@@ -1,0 +1,17 @@
+@media (prefers-color-scheme: light) {
+	:root {
+		--foreground-color-: rgb(150,115,80);
+		--text-color-: black;
+		--text-color-inverted-: white;
+		--background-color-: white;
+	}
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--foreground-color-: rgb(150,115,80);
+		--text-color-: white;
+		--text-color-inverted-: black;
+		--background-color-: black;
+	}
+}
