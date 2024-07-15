@@ -1,16 +1,16 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
-	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/themes.css') }}">
-	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/btns.css') }}">
-	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/ordersuccess.css') }}">
-	<meta http-equiv="refresh" content="5">
-	<title>Successful order</title>
-</head>
-<body>
-<div>
+{% extends "base.html" %}
+
+
+{% block title %}
+<title>Successful order</title>
+{% endblock %}
+
+{% block links %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/ordersuccess.css') }}">
+<meta http-equiv="refresh" content="5">
+{% endblock %}
+
+{% block body %}
 {% if not order.is_archived %}
 <h1>Your order has been successfully placed. </h1>
 <h2>You are number {{ place }} in the queue. </h2> 
@@ -23,7 +23,6 @@ You can now safely close this window.
 {% else %}
 <h1>Your order has been cancelled. </h1>
 {% endif %}
-</div>
 <script type="text/javascript">
 document.querySelector("#cancel").onclick = async(e) => {
 	if (confirm("Are you sure you want to cancel your order? ")) {
@@ -42,5 +41,4 @@ document.querySelector("#cancel").onclick = async(e) => {
 	}
 }
 </script>
-</body>
-</html>
+{% endblock %}
