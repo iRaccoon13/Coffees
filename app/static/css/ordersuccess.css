@@ -1,11 +1,8 @@
 body {
   text-align: center;
-  margin: 0px auto;
+  margin: 0 auto;
   font-family: Arial, sans-serif, monospace;
-  background: url('/static/img/logo.png/');
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
+  background: url('/static/img/logo.png') no-repeat fixed center;
   background-size: cover;
 }
 

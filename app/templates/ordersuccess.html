@@ -24,14 +24,14 @@ You can now safely close this window.
 <h1>Your order has been cancelled. </h1>
 {% endif %}
 <script type="text/javascript">
-document.querySelector("#cancel").onclick = async(e) => {
+document.querySelector("#cancel").onclick = async() => {
 	if (confirm("Are you sure you want to cancel your order? ")) {
 		let response = await fetch("/order/{{id}}/", {
 			method: "PATCH", 
 			headers: {"Content-Type": 'application/json'},
 			body: JSON.stringify({"is_archived": true, "is_completed": false})
 		});
-		if (response.status == 200) {
+		if (response.status === 200) {
 			window.location.reload();
 		} else {
 			alert("Oops! Something went wrong. ");
