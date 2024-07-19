@@ -7,14 +7,14 @@
   border: none;
   background: var(--foreground-color-);
   color: var(--text-color-inverted-);
-  box-shadow: 2px 2px 2px 0px var(--text-color-), 4px 4px 6px 1px var(--foreground-color-);
+  box-shadow: 2px 2px 2px 0 var(--text-color-), 4px 4px 6px 1px var(--foreground-color-);
   transition: 500ms box-shadow, 500ms color, 500ms background;
 }
 .menu-btn-large:hover {
   background: radial-gradient(circle, var(--text-color-inverted-) 25%, var(--foreground-color-));
   transition-duration: 250ms;
   color: var(--text-color-);
-  box-shadow: 0px 0px 6px 2px var(--text-color-), var(--foreground-color-) 0px 0px 6px 6px;
+  box-shadow: 0 0 6px 2px var(--text-color-), var(--foreground-color-) 0 0 6px 6px;
 }
 
 .menu-btn-small {

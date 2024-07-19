@@ -4,7 +4,7 @@ from app.extensions import login_manager, db
 from app.models.user import User
 import bcrypt
 from flask_login import login_required, login_user, logout_user
-import re
+
 
 
 @login_manager.user_loader
@@ -12,7 +12,7 @@ def load_user(user_id):
   return User.query.get(int(user_id))
 
 @bp.route("/signup", methods=["GET", "POST"])
-def signup(password=None, username=None):
+def signup():
   try:
     if request.method == "GET":
       return render_template("signup.html")
@@ -25,7 +25,7 @@ def signup(password=None, username=None):
 
   user = User.query.filter_by(username=username).first() 
   if user: 
-    flash("User with that username already exists")
+    flash("User with that username already exists", category="info")
     return redirect(url_for('auth.signup'))
     
   new_user = User(username=username, password=bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt()))
