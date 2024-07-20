@@ -16,7 +16,6 @@
   color: var(--text-color-);
 }
 .container > div:hover {
-  /*background-color: #ddd;*/
   transition-duration: 250ms;
   /*box-shadow: ghostwhite -5px 2px 5px 3px;*/
   border: 3px var(--foreground-color-) solid;
