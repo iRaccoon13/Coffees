@@ -79,7 +79,7 @@ def orders():
   if current_user.id != 1:
     abort(401)
   orders = [order for order in Order.query.filter_by(is_archived=False).all() if order.date < datetime.now()]
-  orders.sort(key=lambda i: i.date, reverse=True)
+  orders.sort(key=lambda i: i.date)
   return render_template("orders.html", orders=orders)
 
 @bp.route("/order/<id>/success/")
