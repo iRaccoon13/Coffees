@@ -159,4 +159,8 @@ cython_debug/
 *.db
 
 ##
+<<<<<<< HEAD
+
+=======
+>>>>>>> 49a449f5e1e93c2651d2621c5707cbab704f3da3
 .DS_Store
