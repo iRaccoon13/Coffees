@@ -1,10 +1,3 @@
-body {
-  text-align: center;
-  font-family: Arial, sans-serif, monospace;
-  color: var(--text-color-);
-  background-color: var(--background-color-);
-}
-
 .container {
   display: grid;
   grid-template-columns: auto auto auto auto;
