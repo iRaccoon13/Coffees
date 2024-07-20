@@ -1,14 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
-	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/themes.css') }}">
-  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/btns.css') }}">
-	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/reviews.css') }}">
-	<title>Reviews at Raccoon's Coffee</title>
-</head>
-<body>
+{% extends "base.html" %}
+
+{% block links %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/reviews.css') }}">
+{% endblock %}
+
+{% block title %}
+Reviews at Raccoon's Coffee
+{% endblock %}
+{% block body %}
 <div class="container">
 {% for review in reviews %}
 <div>
@@ -29,5 +28,4 @@
 </div>
 {% endfor %}
 </div>
-</body>
-</html>
+{% endblock %}
