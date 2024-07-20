@@ -2,7 +2,7 @@
 
 
 {% block title %}
-<title>Successful order</title>
+Successful order
 {% endblock %}
 
 {% block links %}
@@ -13,7 +13,7 @@
 {% if not order.is_archived %}
 <h1>Your order has been successfully placed. </h1>
 <h2>You are number {{ place }} in the queue. </h2> 
-You can now safely close this window. 
+<p>You can now safely close this window. </p>
 <button id="cancel" class="menu-btn-large">Cancel Order</button>
 <a href=""><button class="menu-btn-large">Refresh</button></a>
 {% elif order.is_completed %}
