@@ -4,7 +4,9 @@ document.querySelector("#caffeine-slider").oninput = function() {
 
 document.querySelector("#date").min = now();
 
+
 var now = () => new Date(Date.now()).toJSON();
+
 
 document.querySelector("#date").value = now();
 
