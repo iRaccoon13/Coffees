@@ -2,7 +2,7 @@ document.querySelector("#caffeine-slider").oninput = function() {
 	document.querySelector("#caffeine-slider-output").innerText = this.value != 0 ? this.value : this.value + " - Decaf";
 };
 
-document.querySelector("#date").min = now();
+
 
 
 var now = () => {return new Date(Date.now()).toJSON()};
