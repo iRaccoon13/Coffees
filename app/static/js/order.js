@@ -4,12 +4,7 @@ document.querySelector("#caffeine-slider").oninput = function() {
 
 document.querySelector("#date").min = now();
 
-function now() {
-	let now = new Date();
-	let time = ("0" + now.getHours()).slice(-2) + ":" + ("0" + now.getMinutes()).slice(-2);
-	let date = now.getUTCFullYear() + "-" + ("0" + now.getMonth()).slice(-2) + "-" + ("0" + now.getDate()).slice(-2);
-	return date + "T" + time;
-};
+var now = () => Date().toJSON();
 
 document.querySelector("#date").value = now();
 
