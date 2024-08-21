@@ -1,0 +1,18 @@
+modules = ["python-3.12", "web"]
+run = "gunicorn -w 2 --threads 50 run:gunicorn_app"
+
+[nix]
+channel = "stable-24_05"
+
+[deployment]
+run = ["sh", "-c", "gunicorn -w 2 --threads 50 run:gunicorn_app"]
+
+[[ports]]
+localPort = 5000
+externalPort = 80
+exposeLocalhost = true
+
+[[ports]]
+localPort = 8000
+externalPort = 8000
+exposeLocalhost = true

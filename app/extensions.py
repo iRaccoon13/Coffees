@@ -6,3 +6,6 @@ login_manager = LoginManager()
 
 from flask_migrate import Migrate
 migrate = Migrate()
+
+from flask_sock import Sock
+sock = Sock()

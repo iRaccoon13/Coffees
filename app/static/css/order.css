@@ -4,7 +4,7 @@ label:has(input[type="checkbox"]) {
   align-items: center;
 }
 
-input[type="checkbox"] { 
+input[type="checkbox"] {
   appearance: none;
   -webkit-appearance: none;
   align-items: center;
@@ -38,7 +38,9 @@ input[type="checkbox"]:checked::before {
 }
 
 
-input[type="text"], input[type="datetime-local"], input[type="number"] {
+input[type="text"],
+input[type="datetime-local"],
+input[type="number"] {
   margin: 10px;
   padding: 0.5em;
   /*width: 100%;*/
@@ -56,7 +58,7 @@ input[type="range"] {
   background: white;
   border-radius: 15px;
   height: 5px;
-  border: 10px var(--foreground-color-) solid; 
+  border: 10px var(--foreground-color-) solid;
   transition-duration: 250ms;
 }
 
@@ -66,30 +68,36 @@ input[type="range"]::-webkit-slider-thumb {
   appearance: none;
   height: 25px;
   width: 15px;
-  background: var(--foreground-color-); 
+  background: var(--foreground-color-);
   border: 5px var(--text-color-) outset;
   border-radius: 10px;
-  cursor: pointer; /* Cursor on hover */
+  cursor: pointer;
+  /* Cursor on hover */
   transition-duration: 250ms;
 }
 
-input[type="range"]:hover, input[type="range"]:focus {
+input[type="range"]:hover,
+input[type="range"]:focus {
   box-shadow: 2px 2px 4px var(--foreground-color-);
   transition-duration: 250ms;
 }
 
-input[type="range"]:hover::-webkit-slider-thumb, input[type="range"]:focus::-webkit-slider-thumb {
+input[type="range"]:hover::-webkit-slider-thumb,
+input[type="range"]:focus::-webkit-slider-thumb {
   box-shadow: 2px 2px 4px var(--text-color-);
   transition-duration: 250ms;
+  border: none;
 }
 
 input:not([type="range"]) {
-  box-shadow: none;
+  background-color: var(--foreground-color-);
+  color: white;
   transition-duration: 250ms;
 }
 
-input:not([type="range"], [type="checkbox"]):focus, input:not([type="range"], [type="checkbox"]):hover {
-  border: 4px var(--foreground-color-) outset;
+input:not([type="range"], [type="checkbox"]):focus,
+input:not([type="range"], [type="checkbox"]):hover {
+  border: none;
   box-shadow: 2px 2px 4px var(--foreground-color-);
   transition-duration: 250ms;
 }
@@ -98,10 +106,13 @@ form:has(input:invalid) button {
   color: maroon !important;
   text-indent: -9999px;
   line-height: 0;
-  cursor: not-allowed !important; /* Change cursor to indicate it is not clickable */
-  pointer-events: none; /* Prevent any interaction with the button */
+  cursor: not-allowed !important;
+  /* Change cursor to indicate it is not clickable */
+  pointer-events: none;
+  /* Prevent any interaction with the button */
   box-shadow: none;
 }
+
 form:has(input:invalid) button::after {
   content: "Please check fields";
   text-indent: 0;
@@ -109,4 +120,18 @@ form:has(input:invalid) button::after {
   line-height: initial;
 }
 
+select {
+  background-color: transparent !important;
+  color: white !important;
 
+}
+
+select>option {
+  color: black;
+}
+
+#heading {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}

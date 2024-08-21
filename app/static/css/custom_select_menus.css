@@ -1,6 +1,6 @@
 .custom-select-container {
-  display: table;
-  margin: auto;
+  display: flex;
+  justify-content: center;
 }
 
 .custom-select {
@@ -11,7 +11,8 @@
 }
 
 .custom-select select {
-  display: none; /*hide original SELECT element: */
+  display: none;
+  /*hide original SELECT element: */
 }
 
 div.select-selected {
@@ -47,7 +48,8 @@ div.select-selected {
 }
 
 /* style the items (options), including the selected item: */
-.select-items div,.select-selected {
+.select-items div,
+.select-selected {
   color: #ffffff;
   padding: 8px 16px;
   border: 1px solid transparent;

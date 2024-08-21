@@ -1,26 +1,31 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Log In</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
-  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/themes.css') }}">
-  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/btns.css') }}">
+{% extends "base.html" %}
+
+{% block title %}Log In{% endblock %}
+
+{% block links %}
   <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
-</head>
-<body>
+{% endblock %}
+
+{% block body %}
+<div class="container rounded glass text-center mt-4 p-4">
   <h1>Log In</h1>
   {% with message = get_flashed_messages()[0] %}
-  {% if messages %}
-  <div id="flash" style="color: {% if message.category=='info' %}rgba(240, 195, 80){% endif %};">
+  {% if message %}
+  <div class="alert alert-{{ message.category }}">
     <p>{{ message }}</p>
   </div>
   {% endif %}
   {% endwith %}
   <form method="POST">
-    <input name="username" placeholder="Username" required>
-    <input type="password" name="password" placeholder="Password" required>
-    <button>Submit</button>
+    <div class="form-floating mb-3 mt-3">
+      <input type="text" class="form-control" id="username" placeholder="Enter Username" name="username">
+      <label for="username">Username</label>
+    </div>
+    <div class="form-floating mt-3 mb-3">
+      <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="password">
+      <label for="pwd">Password</label>
+    </div>
+    <button class="btn">Submit</button>
   </form>
-  
-</body>
-</html>
+</div>
+{% endblock %}
